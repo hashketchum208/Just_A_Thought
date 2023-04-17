@@ -1,7 +1,7 @@
 const { User, Thought } = require('../models');
 
 const thoughtController = {
-  createThought(req, res) {
+  postThought(req, res) {
     Thought.create(req.body)
         .then((thought) => res.json(thought))
         .catch((err) => res.status(500).json(err));
@@ -29,7 +29,7 @@ const thoughtController = {
           )
           .catch((err) => {console.log(err);res.status(500).json(err)});
   },
-  updateThought(req, res) {
+  putThought(req, res) {
     Thought.findOneAndUpdate(
       {_id: req.params.id},
       {$set: req.body},
