@@ -21,7 +21,7 @@ const userController = {
       .select('-__v')
       .then((user) =>
         !user
-          ? res.status(404).json({ message: 'Could not find!' })
+          ? res.status(404).json({ message: 'not found!' })
           : res.status(200).json(user)
       )
       .catch((err) => { console.log(err); res.status(500).json(err) });
@@ -34,7 +34,7 @@ const userController = {
     )
       .then((user) =>
         !user
-          ? res.status(404).json({ message: 'Could not find!' })
+          ? res.status(404).json({ message: 'not found!' })
           : res.status(200).json(user)
       )
       .catch((err) => res.status(500).json(err));
@@ -43,7 +43,7 @@ const userController = {
     User.findOneAndDelete({ _id: req.params.id })
       .then((user) =>
         !user
-          ? res.status(404).json({ message: 'Could not find!' })
+          ? res.status(404).json({ message: 'not found!' })
           : Thought.deleteMany({ _id: { $in: User.thought } })
       )
       .then(() => res.status(200).json({ message: 'User has been deleted'}))

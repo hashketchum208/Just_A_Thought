@@ -15,8 +15,8 @@ const thoughtSchema = new Schema(
       type: String, 
       required: true,
     },
-    react: [{ 
-      reactBody: { 
+    comment: [{ 
+      commentBody: { 
         type: String, 
         required: false, 
         maxLength: 280, 
