@@ -2,7 +2,7 @@ const { User, Thought } = require('../models');
 
 const thoughtController = {
   postThought(req, res) {
-    Thought.post(req.body)
+    Thought.create(req.body)
         .then((thought) => res.json(thought))
         .catch((err) => res.status(500).json(err));
   },
